@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import './App.css'
+import Navbar from './components/Navbar'
+import general from './Pages/general'
+import bioinformatics from './Pages/bioinformatics'
+import biomechanics from './Pages/biomechanics'
+import cellular from './Pages/cellular'
+import sysandsig from './Pages/sysandsig'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar/>
+        <Switch>
+          <Route path='/' exact component={general} />
+          <Route path='/bioinformatics' component={bioinformatics} />
+          <Route path='/biomechanics' component={biomechanics} />
+          <Route path='/sysandsig' component={sysandsig} />
+          <Route path='/cellular' component={cellular} />
+        </Switch>
+      </Router>
     </div>
   );
 }
