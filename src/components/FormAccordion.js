@@ -3,7 +3,7 @@ import "./Accordion.css"
 import { FiPlus } from "react-icons/fi"
 import Form from "./Form"
 
-function FormAccordion() {
+function FormAccordion(props) {
     const [setActive, setActiveState] = useState("")
     const [setHeight, setHeightState] = useState("0px")
 
@@ -20,7 +20,7 @@ function FormAccordion() {
             <p className="accordion__title"><FiPlus/>  Add New Class</p>
         </button>
         <div style={{maxHeight: `${setHeight}`}} className="accordion__content">
-            <Form/>
+            <Form addCourse={props.addCourse} />
         </div>
     </div>
     )

@@ -1,12 +1,13 @@
 import React from "react"
-import "./Accordion.css"
 
-class Form extends React.Component {
+class TodoForm extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
             content:'',
+            date:'',
+            additional:''
         }
 
         this.handleInput = this.handleInput.bind(this)
@@ -15,7 +16,7 @@ class Form extends React.Component {
 
     handleInput(e) {
         this.setState({
-            content: e.target.value
+            [e.target.className]: e.target.value
         })
     }
 
@@ -30,13 +31,25 @@ class Form extends React.Component {
         return (
             <div className='formWrapper'>
                 <input 
-                className='noteInput'
-                placeholder='Add a new course...'
+                className='content'
+                placeholder='Add new task...'
                 value={this.state.content}
                 onChange={this.handleInput}
                 />
+                <input 
+                className='date'
+                placeholder='Add the due date/time for this task...'
+                value={this.state.date}
+                onChange={this.handleInput}
+                />
+                <input 
+                className='additional'
+                placeholder='Add any additional info...'
+                value={this.state.additional}
+                onChange={this.handleInput}
+                />
                 <button 
-                className='noteButton'
+                className='submitTask'
                 onClick={this.submitCourse}
                 >Add Course</button>
             </div>
@@ -44,4 +57,4 @@ class Form extends React.Component {
     }
 }
 
-export default Form
+export default TodoForm
