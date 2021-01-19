@@ -1,13 +1,25 @@
 import React from "react"
+import { DB_CONFIG } from "C:/Users/josha/Desktop/Projects/bmegorganizer/src/Config/config"
+import firebase from "firebase/app"
+import "firebase/database"
+import { TiScissors } from "react-icons/ti"
 
 class TodoForm extends React.Component {
     constructor(props) {
         super(props)
 
+        if (!firebase.apps.length) { 
+            this.app = firebase.initializeApp(DB_CONFIG)
+        } else {
+            this.app = firebase.app()
+        }
+        this.db = firebase.database()
+
         this.state = {
             content:'',
             date:'',
-            additional:''
+            additional:'',
+            id: props.id
         }
 
         this.handleInput = this.handleInput.bind(this)
@@ -21,9 +33,16 @@ class TodoForm extends React.Component {
     }
 
     submitCourse() {
-        this.props.addCourse(this.state.content)
+        this.db.ref('courses/'+this.state.id).push({
+            content: this.state.content,
+            date: this.state.date,
+            additional: this.state.additional
+        })
+
         this.setState({
-            content:''
+            content:'',
+            date:'',
+            additional:''
         })
     }
 

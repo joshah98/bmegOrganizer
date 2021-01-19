@@ -41,7 +41,6 @@ class bioinformatics extends React.Component {
             this.setState({
                 courses: [...prevState, ...newState]
             })
-            console.log("ALLCOURSES" +this.state.courses)
         })
 
         this.db.ref('courses').on("child_removed", snap => {
@@ -60,17 +59,11 @@ class bioinformatics extends React.Component {
     }
 
     addCourse(course) {
-        this.db.ref('courses').push({ title: course });
+        this.db.ref('courses').push({ title: course })
     }
 
     removeCourse(course) {
         this.db.ref('courses').child(course).remove()
-    }
-
-    clear() {
-        this.setState({
-            courses: []
-        })
     }
 
     render() {
