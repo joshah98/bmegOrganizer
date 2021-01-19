@@ -2,7 +2,7 @@ import React from "react"
 import { DB_CONFIG } from "C:/Users/josha/Desktop/Projects/bmegorganizer/src/Config/config"
 import firebase from "firebase/app"
 import "firebase/database"
-import { TiScissors } from "react-icons/ti"
+import "./TodoForm.css"
 
 class TodoForm extends React.Component {
     constructor(props) {
@@ -19,7 +19,9 @@ class TodoForm extends React.Component {
             content:'',
             date:'',
             additional:'',
-            id: props.id
+            id: props.id,
+            updateItems: props.updateItems,
+            page: props.page
         }
 
         this.handleInput = this.handleInput.bind(this)
@@ -33,7 +35,7 @@ class TodoForm extends React.Component {
     }
 
     submitCourse() {
-        this.db.ref('courses/'+this.state.id).push({
+        this.db.ref('courses/'+this.state.page+'/'+this.state.id).push({
             content: this.state.content,
             date: this.state.date,
             additional: this.state.additional
@@ -44,6 +46,8 @@ class TodoForm extends React.Component {
             date:'',
             additional:''
         })
+
+        this.state.updateItems()
     }
 
     render() {
@@ -70,7 +74,7 @@ class TodoForm extends React.Component {
                 <button 
                 className='submitTask'
                 onClick={this.submitCourse}
-                >Add Course</button>
+                >Add Task</button>
             </div>
         )
     }

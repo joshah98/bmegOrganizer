@@ -1,10 +1,9 @@
 import React from 'react'
+import Page from './Page'
 
 function biomechanics() {
     return (
-        <div className='biomechanics'>
-            <h1>biomechanics</h1>
-        </div>
+        <Page page='biomechanics' />
     )
 }
 

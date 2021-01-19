@@ -1,10 +1,9 @@
 import React from 'react'
+import Page from './Page'
 
 function cellular() {
     return (
-        <div className='cellular'>
-            <h1>cellular</h1>
-        </div>
+        <Page page='cellular' />
     )
 }
 

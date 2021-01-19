@@ -18,5 +18,15 @@
   }
 
   .right {
-      width: 30%;
+      width: 25%;
+  }
+
+  .delete {
+      width: 5%;
+      float: right;
+      padding: 10px;
+  }
+
+  .deletebtn:hover {
+    color: rgb(216, 65, 65);
   }

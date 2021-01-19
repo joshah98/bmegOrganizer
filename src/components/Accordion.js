@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import "./Accordion.css"
 import TodoItem from "./TodoItem"
 import { TiDeleteOutline } from "react-icons/ti"
@@ -11,6 +11,7 @@ import "firebase/database"
 function Accordion(props) {
     const [setActive, setActiveState] = useState("")
     const [setHeight, setHeightState] = useState("0px")
+    const [todos, setTodos] = useState([])
 
     if (!firebase.apps.length) { 
         const app = firebase.initializeApp(DB_CONFIG)
@@ -19,23 +20,32 @@ function Accordion(props) {
     }
     const db = firebase.database()
 
-    var todos = []
+    function toggle() {
+        updateItems()
+        toggleAccordion()
+    }
 
-    db.ref('courses/'+props.accordionID).on("value", function(snapshot) {
-        todos = []
-        snapshot.forEach((child) => {
-            if(child.val().content !== undefined) {
-                todos.push({
-                    content: child.val().content,
-                    date: child.val().date,
-                    additional: child.val().additional,
-                    id: child.key
-                })
-            }
+    function updateItems() {
+        db.ref('courses/'+props.page+'/'+props.accordionID).on("value", function(snapshot) {
+            let snapTodos = []
+            snapshot.forEach((child) => {
+                if(child.val().content !== undefined) {
+                    snapTodos.push({
+                        content: child.val().content,
+                        date: child.val().date,
+                        additional: child.val().additional,
+                        id: child.key
+                    })
+                }
+            })
+            setTodos(snapTodos)
         })
-    })
+    }
 
-
+    useEffect(() => {
+        setHeightState(setActive === "" ? "0px" : `${content.current.scrollHeight}px`)
+    }, [todos])
+    
     const content = useRef(null)
 
     function toggleAccordion() {
@@ -48,17 +58,18 @@ function Accordion(props) {
     }
 
     function removeItem(id) {
-        console.log("REMOVE" +id)
-        db.ref('courses/'+props.accordionID).child(id).remove()
+        db.ref('courses/'+props.page+'/'+props.accordionID).child(id).remove()
     }
 
     return (
         <div className="accordion__section">
-            <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
+            <button className={`accordion ${setActive}`} onClick={toggle}>
                 <p className="accordion__title">{props.title}</p>
-                <span className="closebtn" onClick={() => handleRemove(props.accordionID)}>
-                    < TiDeleteOutline size={30}/>
-                </span>
+                <div className="close">
+                    <span className="closebtn" onClick={() => handleRemove(props.accordionID)}>
+                        < TiDeleteOutline size={30}/>
+                    </span>
+                </div>
             </button>
             <div ref={content} style={{maxHeight: `${setHeight}`}} className="accordion__content">
                 {todos.map(todo => {
@@ -67,14 +78,14 @@ function Accordion(props) {
                             <TodoItem 
                             content={todo.content} 
                             date={todo.date} 
-                            additional={todo.additional}/>
-                            <span className="closebtn" onClick={() => removeItem(todo.id)}>
-                            < TiDeleteOutline size={15}/>
-                            </span>
+                            additional={todo.additional}
+                            removeItem={removeItem}
+                            itemId={todo.id}
+                            />
                         </div>
                     )
                 })}
-                <TodoForm id={props.accordionID}/>
+                <TodoForm id={props.accordionID} updateItems={updateItems} page={props.page}/>
             </div>
         </div>
         )

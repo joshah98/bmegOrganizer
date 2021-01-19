@@ -1,10 +1,9 @@
 import React from 'react'
+import Page from './Page'
 
 function sysandsig() {
     return (
-        <div className='sysandsig'>
-            <h1>Hello!</h1>
-        </div>
+        <Page page='sysandsig' />
     )
 }
 

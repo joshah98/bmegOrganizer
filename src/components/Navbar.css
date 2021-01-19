@@ -75,3 +75,13 @@
 span {
     margin-left: 16px;
 }
+
+.header {
+    position: absolute;
+    left: 33%;
+    padding: 60px;
+    text-align: center;
+    float: right;
+    color: white;
+    font-size: 30px;
+}

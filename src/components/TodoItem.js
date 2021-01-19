@@ -1,5 +1,7 @@
 import React from 'react'
 import "./TodoItem.css"
+import { AiOutlineDelete } from "react-icons/ai"
+
 
 function TodoItem(props) {
     return (
@@ -16,6 +18,13 @@ function TodoItem(props) {
             <div className="accordion__text right column">
                 {props.additional}
             </div>
+
+            <div className="delete right">
+                <span className="deletebtn" onClick={() => props.removeItem(props.itemId)}>
+                    <AiOutlineDelete/>
+                </span>
+            </div>
+
         </div>
     )
 }

@@ -1,10 +1,9 @@
 import React from 'react'
+import Page from './Page'
 
 function general() {
     return (
-        <div className='general'>
-            <h1>General</h1>
-        </div>
+        <Page page='general' />
     )
 }
 
