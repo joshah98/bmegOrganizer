@@ -13,11 +13,11 @@ function App() {
       <Router>
         <Navbar/>
         <Switch>
-          <Route path='' exact component={general} />
-          <Route path='/bioinformatics' component={bioinformatics} />
-          <Route path='/biomechanics' component={biomechanics} />
-          <Route path='/sysandsig' component={sysandsig} />
-          <Route path='/cellular' component={cellular} />
+          <Route path='/bmegOrganizer' exact component={general} />
+          <Route path='/bmegOrganizer/bioinformatics' component={bioinformatics} />
+          <Route path='/bmegOrganizer/biomechanics' component={biomechanics} />
+          <Route path='/bmegOrganizer/sysandsig' component={sysandsig} />
+          <Route path='/bmegOrganizer/cellular' component={cellular} />
         </Switch>
       </Router>
     </div>
