@@ -3,7 +3,6 @@ import "./Accordion.css"
 import TodoItem from "./TodoItem"
 import { TiDeleteOutline } from "react-icons/ti"
 import TodoForm from "./TodoForm"
-import { DB_CONFIG } from "C:/Users/josha/Desktop/Projects/bmegorganizer/src/Config/config"
 import firebase from "firebase/app"
 import "firebase/database"
 
@@ -13,11 +12,6 @@ function Accordion(props) {
     const [setHeight, setHeightState] = useState("0px")
     const [todos, setTodos] = useState([])
 
-    if (!firebase.apps.length) { 
-        const app = firebase.initializeApp(DB_CONFIG)
-    } else {
-        const app = firebase.app()
-    }
     const db = firebase.database()
 
     function toggle() {

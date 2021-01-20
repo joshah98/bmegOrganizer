@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import "./Accordion.css"
 import { FiPlus } from "react-icons/fi"
 import Form from "./Form"
@@ -6,8 +6,6 @@ import Form from "./Form"
 function FormAccordion(props) {
     const [setActive, setActiveState] = useState("")
     const [setHeight, setHeightState] = useState("0px")
-
-    const content = useRef(null)
 
     function toggleAccordion() {
         setActiveState(setActive === "" ? "active" : "")
