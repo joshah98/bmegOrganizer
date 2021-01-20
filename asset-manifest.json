@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/bmegOrganizer/static/css/main.b0db0acf.chunk.css",
-    "main.js": "/bmegOrganizer/static/js/main.5e45022b.chunk.js",
-    "main.js.map": "/bmegOrganizer/static/js/main.5e45022b.chunk.js.map",
+    "main.js": "/bmegOrganizer/static/js/main.e6890930.chunk.js",
+    "main.js.map": "/bmegOrganizer/static/js/main.e6890930.chunk.js.map",
     "runtime-main.js": "/bmegOrganizer/static/js/runtime-main.ecebbf40.js",
     "runtime-main.js.map": "/bmegOrganizer/static/js/runtime-main.ecebbf40.js.map",
-    "static/js/2.ba1aa3d6.chunk.js": "/bmegOrganizer/static/js/2.ba1aa3d6.chunk.js",
-    "static/js/2.ba1aa3d6.chunk.js.map": "/bmegOrganizer/static/js/2.ba1aa3d6.chunk.js.map",
+    "static/js/2.b7affae8.chunk.js": "/bmegOrganizer/static/js/2.b7affae8.chunk.js",
+    "static/js/2.b7affae8.chunk.js.map": "/bmegOrganizer/static/js/2.b7affae8.chunk.js.map",
     "index.html": "/bmegOrganizer/index.html",
     "static/css/main.b0db0acf.chunk.css.map": "/bmegOrganizer/static/css/main.b0db0acf.chunk.css.map",
-    "static/js/2.ba1aa3d6.chunk.js.LICENSE.txt": "/bmegOrganizer/static/js/2.ba1aa3d6.chunk.js.LICENSE.txt",
+    "static/js/2.b7affae8.chunk.js.LICENSE.txt": "/bmegOrganizer/static/js/2.b7affae8.chunk.js.LICENSE.txt",
     "static/media/index.css": "/bmegOrganizer/static/media/img2.6a9dcc62.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ecebbf40.js",
-    "static/js/2.ba1aa3d6.chunk.js",
+    "static/js/2.b7affae8.chunk.js",
     "static/css/main.b0db0acf.chunk.css",
-    "static/js/main.5e45022b.chunk.js"
+    "static/js/main.e6890930.chunk.js"
   ]
 }
