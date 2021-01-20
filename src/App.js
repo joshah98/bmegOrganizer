@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
-import Page from './Pages/Page'
+import general from './Pages/general'
 import bioinformatics from './Pages/bioinformatics'
 import biomechanics from './Pages/biomechanics'
 import cellular from './Pages/cellular'
@@ -12,12 +12,12 @@ function App() {
     <div className="App">
       <Router>
         <Navbar/>
-        <Page page='general' />
         <Switch>
-          <Route path='/bmegOrganizer/bioinformatics' component={bioinformatics} />
-          <Route path='/bmegOrganizer/biomechanics' component={biomechanics} />
-          <Route path='/bmegOrganizer/sysandsig' component={sysandsig} />
-          <Route path='/bmegOrganizer/cellular' component={cellular} />
+          <Route path='/' component={general} />
+          <Route path='/bioinformatics' component={bioinformatics} />
+          <Route path='/biomechanics' component={biomechanics} />
+          <Route path='/sysandsig' component={sysandsig} />
+          <Route path='/cellular' component={cellular} />
         </Switch>
       </Router>
     </div>
