@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Navbar/>
         <Switch>
-          <Route path='/' component={general} />
+          <Route path='/' exact component={general} />
           <Route path='/bioinformatics' component={bioinformatics} />
           <Route path='/biomechanics' component={biomechanics} />
           <Route path='/sysandsig' component={sysandsig} />
